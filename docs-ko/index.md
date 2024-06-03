@@ -1,37 +1,37 @@
-# GalaChain SDK
+# 갈라체인 SDK
 
-Welcome to developing with GalaChain!
-GalaChain is a layer 1 blockchain designed to be the foundation of Web3 Gaming, Entertainment and more.
+갈라체인 개발에 오신 것을 환영합니다! 
+갈라체인은 Web3 게임, 엔터테인먼트 등의 기반이 되도록 설계된 레이어 1 블록체인입니다.
 
-## Features
+## 기능 
 
-- Utility libraries to allow seamless development of chaincodes
-- Local development environment with hot code reload and local block browser
-- Easy start with chaincode template
-- Integration with GalaChain
+- 원활한 체인코드 개발을 가능하게 하는 유틸리티 라이브러리
+- 코드 핫 리로드와 로컬 블록 브라우저 기능을 갖춘 로컬 개발 환경
+- 체인코드 템플릿을 이용한 쉬운 시작
+- 갈라체인과의 통합
 
-Read more about [GalaChain](galachain.md).
+자세한 내용은 다음을 참고하세요: [갈라체인](galachain.md).
 
-## Tutorials
+## 튜토리얼 
 
-- [**From zero to deployment**](from-zero-to-deployment.md)
-- [Getting started guide](getting-started.md)
+- [**처음부터 배포까지**](from-zero-to-deployment.md)
+- [처음 시작하기 도움글](getting-started.md)
 
-## Working with GalaChain
+## 갈라체인에서 작업하기 
 
-- [Chaincode development](chaincode-development.md)
-- [Chaincode testing](chaincode-testing.md)
-- [Chaincode deployment](chaincode-deployment.md)
-- [Authorization](authorization.md)
-- [Chaincode client](chaincode-client.md)
+- [체인코드 개발](chaincode-development.md)
+- [체인코드 테스트](chaincode-testing.md)
+- [체인코드 배포](chaincode-deployment.md)
+- [권한부여](authorization.md)
+- [체인코드 클라이언트](chaincode-client.md)
 
-## Reference documentation
+## 참고 문서 
 
-- [`chain-api`](chain-api-docs/exports.md) - Common types, DTOs (Data Transfer Objects), APIs, signatures, and utils for GalaChain
-- [`chain-client`](chain-client-docs/exports.md) - GalaChain client library
-- [`chain-test`](chain-test-docs/exports.md) - Unit testing and integration testing for GalaChain
-- [`chaincode` framework](chaincode-docs/exports.md) - Framework for building chaincodes on GalaChain
+- [`chain-api`](chain-api-docs/exports.md) - 갈라체인을 위한 일반 유형, DTO(데이터 전송 객체), API, 서명, 유틸리티 
+- [`chain-client`](chain-client-docs/exports.md) - 갈라체인 클라이언트 라이브러리 
+- [`chain-test`](chain-test-docs/exports.md) - 갈라체인 단위 테스트 & 통합 테스트
+- [`chaincode` framework](chaincode-docs/exports.md) - 갈라체인 체인코드 개발 프레임워크 
 
-## Documentation in PDF format
+## PDF 형식 문서 - 영문 
 
-- [PDF file](./pdf/sdk-documentation.pdf)
+- [PDF 파일](./pdf/sdk-documentation.pdf)
