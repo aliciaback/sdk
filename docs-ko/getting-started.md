@@ -1,181 +1,181 @@
-# Getting started
+# 시작하기 
 
-## Option 1: Local Environment (Linux, MacOS, or Windows with WSL)
+## 옵션 1: 로컬 환경(리눅스, 맥OS, WSL이 설치된 윈도우)
 
-> If you are using Windows with WSL don't forget to enable integration with WSL on Docker Desktop.
+> WSL이 설치된 윈도우를 사용하는 경우, 도커 데스크탑에서 WSL과의 통합을 활성화시키는 것을 잊지 마세요. 
 
-[How to use Windows with WSL](./windows-wsl.md)
+[WSL이 설치된 윈도우 사용하는 방법](./windows-wsl.md)
 
-### Requirements
+### 요건 
 
-You need to have the following tools installed on your machine:
+컴퓨터에 다음 도구들이 설치되어 있어야 합니다. 
 
 - Node.js 18+
-- Docker and Docker Compose
-- [jq](https://jqlang.github.io/jq/) and [yq](https://github.com/mikefarah/yq)
+- Docker 그리고 Docker Compose
+- [jq](https://jqlang.github.io/jq/) 그리고 [yq](https://github.com/mikefarah/yq)
 
-### 1. Install our CLI
+### 1. 갈라체인 CLI 설치 
 
 ```
 npm i -g @gala-chain/cli
 ```
 
-Check the CLI:
+CLI 확인하기:
 
 ```
 galachain --help
 ```
 
-### 2. Initialize your project
+### 2. 프로젝트 초기 설정
 
 ```
 galachain init <project-name>
 ```
 
-It will create a sample project inside `<project-name>` directory.
+`<project-name>` 디렉토리 내에 샘플 프로젝트가 생성됩니다.
 
-Install all dependencies:
+모든 dependencies 설치:
 
 ```
 npm i
 ```
 
-### 3. Start the network
+### 3. 네트워크 시작 
 
 ```
 npm run network:start
 ```
 
-The network will start in hot-reload/watch mode, so leave the prompt with logs running and execute the following commands in a new prompt.
+네트워크는 hot-reload/watch 모드에서 시작됩니다. 그러니 로그 프롬프트가 돌아가도록 그대로 두고, 새로운 프롬프트에서 아래 명령어를 실행합니다.
 
-### 4. Run integration tests
+### 4. 통합 테스트 실행 
 
-Now you can run integration tests with:
+아래 명령어로 통합 테스트를 실행할 수 있습니다. 
 
 ```
 npm run test:e2e
 ```
 
-### 5. Verify changes in block browser and GraphQL
+### 5. 블록 브라우저와 GraphQL에서 변경사항 확인하기
 
-Navigate to [http://localhost:3010/blocks](http://localhost:3010/blocks) to see our block browser which allows you to see what's saved on your local GalaChain network.
+[http://localhost:3010/blocks](http://localhost:3010/blocks)로 이동하여 블록 브라우저를 확인합니다. 여기서는 여러분의 로컬 갈라체인 네트워크에 무엇이 저장되어 있는지 확인할 수 있습니다. 
 
-Navigate to [http://localhost:3010/graphiql](http://localhost:3010/graphiql) to interact with GraphQL and execute queries.
+[http://localhost:3010/graphiql](http://localhost:3010/graphiql)로 이동하여 GraphQL과 상호작용하고 쿼리를 실행합니다. 
 
 
-### 6. Next steps
+### 6. 다음 단계 
 
-- [Iterate on your chaincode](chaincode-development.md)
-- [Get familiar with GalaChain SDK](galachain.md)
-- [Deploy chaincode to gc-testnet](chaincode-deployment.md)
+- [체인코드 이터레이션](chaincode-development.md)
+- [갈라체인 SDK에 익숙해지기](galachain.md)
+- [gc-testnet로 체인코드 디플로이](chaincode-deployment.md)
 
 ---
 
-## Option 2: Use Docker image (Linux, MacOS or Windows)
+## 옵션 2: 도커 이미지 사용(리눅스, 맥OS, 윈도우)
 
-### Requirements
+### 요건 
 
-- Docker Desktop or Docker CLI.
-- [Optional] VS Code with [Dev Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension.
+- 도커 데스크탑 또는 도커 CLI.
+- [선택사항] [Dev Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) 확장 프로그램을 이용한 VSCode 
 
-### 1. Run the Docker image
+### 1. 도커 이미지 실행
 
 ```
 docker run --privileged -d -p 3010:3010 -it --name <container_name> ghcr.io/galachain/sdk:latest
 ```
 
-Make sure the container is up and running.
-The Docker image initializes a new project with the name `chaincode-template` by default.
+컨테이너가 실행 중인지 확인합니다.
+도커 이미지는 새로운 프로젝트를 초기에 설정할 때 `chaincode-template`라는 이름을 디폴트로 설정합니다. 
 
-### 2. Open the running container
+### 2. 운영 중인 컨테이너 오픈하기 
 
-#### 2.1 Open the container with bash
+#### 2.1 bash로 열기 
 
 ```
 docker exec -ti <container_name> /bin/bash
 ```
 
-#### 2.2 Open the container with VSCode (Requires VSCode and Dev Containers Extension)
+#### 2.2 VSCode로 열기 (VSCode 및 Dev Containers 확장 프로그램 필요) 
 
-Open VSCode and press F1 to open the Command Palette and search for `Dev Containers: Attach to Running Container`
+VSCode를 열고 F1을 클릭하여 명령어 팔레트(Command Palette)를 엽니다. 그런 다음 `Dev Containers: Attach to Running Container`를 검색합니다. 
 
-After attach the container you may have to open the project folder manually.
+컨테이너를 연결한 후 프로젝트 폴더를 수동으로 열어야 할 수도 있습니다.
 
-### 3. Start the network
+### 3. 네트워크 시작 
 
-Once the terminal is open, start the network with:
+터미널이 열리면, 아래 명령어로 네트워크를 시작합니다. 
 
 ```
 npm run network:start
 ```
 
-The network is going to start in dev mode and the prompt will be left showing the logs, so don't close the prompt and open new ones to proceed with the following commands.
+네트워크는 개발 모드에서 시작되며, 로그를 표시하는 프롬프트는 남아 있습니다. 해당 프롬프트를 닫지 말고, 새로운 프롬프트를 열어 다음 명령어들을 계속 실행합니다. 
 
-### 4. Run integration tests
+### 4. 통합 테스트 실행
 
-Now you can run integration tests with:
+이제 아래 명령어를 이용하여 통합 테스트를 수행할 수 있습니다. 
 
 ```
 npm run test:e2e
 ```
 
-### 5. Verify changes in block browser and GraphQL
+### 5. 블록 브라우저와 GraphQL에서 변경사항 확인하기
 
-Navigate to [http://localhost:3010/blocks](http://localhost:3010/blocks) to see our block browser which allows you to see what's saved on your local GalaChain network.
+[http://localhost:3010/blocks](http://localhost:3010/blocks)로 이동하여 블록 브라우저를 확인합니다. 여기서는 여러분의 로컬 갈라체인 네트워크에 무엇이 저장되어 있는지 확인할 수 있습니다.
 
-Navigate to [http://localhost:3010/graphiql](http://localhost:3010/graphiql) to interact with GraphQL and execute queries.
+[http://localhost:3010/graphiql](http://localhost:3010/graphiql)로 이동하여 GraphQL과 상호작용하고 쿼리를 실행합니다.
 
 ---
 
-## Option 3: Using Dev Containers (Linux or MacOS)
+## 옵션 3: Dev Containers 사용(리눅스 또는 맥OS)
 
-### Requirements
+### 요건 
 
 - [VSCode](https://code.visualstudio.com/)
 - [Dev Containers Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
 - Node.js
-- Docker
+- 도커 
 
-### 1. Install our CLI
+### 1. 갈라체인 CLI 설치
 
 ```
 npm i -g @gala-games/chain-cli
 ```
 
-Check the CLI:
+CLI 확인하기:
 
 ```
 galachain --help
 ```
 
-### 2. Initialize your project
+### 2. 프로젝트 초기 설정 
 
 ```
 galachain init <project-name>
 ```
 
-It will create a sample project inside `<project-name>` directory.
+`<project-name>` 디렉토리 내에 샘플 프로젝트가 생성됩니다.
 
-Open the directory on VSCode.
+VSCode에서 디렉토리를 엽니다. 
 
 ```
 cd <project-name>
 code .
 ```
 
-### 3. Open in a Dev Container
+### 3. Dev Container에서 열기 
 
-While in VSCode, press F1 to open the Command Palette and search for `Dev Containers: Reopen in Container`
+VSCode에서 F1을 클릭하여 명령어 팔레트(Command Palette)를 엽니다. 그런 다음 `Dev Containers: Reopen in Container`를 검색합니다. 
 
 ![remote-command-palette](./assets/remote-command-palette.png)
 
-You can also click on the Remote Indicator in the status bar to get a list of the most common commands.
+상태 표시줄의 Remote Indicator를 클릭하면 가장 일반적인 명령어 목록을 확인할 수 있습니다. 
 
 ![remote-command-palette](./assets/remote-dev-status-bar.png)
 
-### 4. Install dependencies and start network
+### 4. Dependencies 설치 및 네트워크 시작 
 
-Open a new prompt when in a Dev Conatiner and run the commands:
+Dev Container에서 새로운 프롬프트를 열고 아래 명령어를 실행합니다. 
 
 ```
 npm install
@@ -185,27 +185,27 @@ npm install
 npm run network:start
 ```
 
-The network will start in dev mode, so leave the prompt with logs running and execute the following commands in a new prompt.
+네트워크는 개발 모드에서 시작되기 때문에, 로그를 표시하는 프롬프트는 닫지 말고, 새로운 프롬프트를 열어 다음 명령어들을 실행합니다. 
 
-### 5. Run integration tests
+### 5. 통합 테스트 실행 
 
-Now you can run integration tests with:
+이제 아래 명령어를 이용하여 통합 테스트를 수행할 수 있습니다.
 
 ```
 npm run test:e2e
 ```
 
-### 6. Verify changes in block browser and GraphQL
+### 6. 블록 브라우저와 GraphQL에서 변경사항 확인하기 
 
-Navigate to [http://localhost:3010/blocks](http://localhost:3010/blocks) to see our block browser which allows you to see what's saved on your local GalaChain network.
+[http://localhost:3010/blocks](http://localhost:3010/blocks)로 이동하여 블록 브라우저를 확인합니다. 여기서는 여러분의 로컬 갈라체인 네트워크에 무엇이 저장되어 있는지 확인할 수 있습니다.
 
-Navigate to [http://localhost:3010/graphiql](http://localhost:3010/graphiql) to interact with GraphQL and execute queries.
+[http://localhost:3010/graphiql](http://localhost:3010/graphiql)로 이동하여 GraphQL과 상호작용하고 쿼리를 실행합니다.
 
 ---
 
-# Troubleshooting
+# 트러블슈팅 
 
-## Docker Desktop on Windows
+## 윈도우 도커 데스크탑 
 
 #### If you are using Windows with WSL don't forget to enable integration with WSL on Docker Desktop.
 ```
