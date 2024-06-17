@@ -207,35 +207,36 @@ npm run test:e2e
 
 ## 윈도우 도커 데스크탑 
 
-#### If you are using Windows with WSL don't forget to enable integration with WSL on Docker Desktop.
+#### WSL이 설치된 윈도우를 사용하는 경우, 도커 데스크탑에서 WSL 통합을 활성화하는 것을 잊지 마세요.
+
 ```
 Docker Desktop > Settins > Resources > WSL Integration
 ```
 
-#### Docker: image operating system "linux" cannot be used on this platform: operating system is not supported.
+#### Docker: "image operating system "linux" cannot be used on this platform"(이미지 운영 체제 리눅스는 이 플랫폼에서 사용할 수 없음): "operating system is not supported."(운영체제 미지원)
 
-Some versions of the Docker Desktop for Windows have a bug that prevents the use of Linux images. If you are facing this issue, you can use the WSL2 backend to run Docker. To do so, go to Docker Desktop > Settings > General and select WSL2 as the default backend.
+윈도우 도커 데스크탑의 일부 버전은 버그로 인해 리눅스 이미지를 사용할 수 없습니다. 이러한 문제가 발생하는 경우, WSL2 백엔드를 이용하여 도커를 실행할 수 있습니다. 이를 위해서는 Docker Desktop > Settings > General에서 WSL2를 디폴트 백엔드로 설정하세요. 
 
-#### Docker: "no matching manifest for windows/amd64 in the manifest list entries".
+#### Docker: "no matching manifest for windows/amd64 in the manifest list entries"(매니페스트 리스트에 윈도우/amd64와 일치하는 매니페스트 없음)
 
-To bypass this issue you can run the Docker daemon in experimental mode:
+이 문제를 우회하려면 Docker daemon을 실험 모드에서 실행해 볼 수 있습니다. 
 
 ```
-Docker Desktop > Settins > Docker Engine > Edit the Docker daemon file > Set the "experimental": true > Apply & Restart
+Docker Desktop > Settings > Docker Engine > Edit the Docker daemon file > Set the "experimental": true > Apply & Restart
 ```
 
-## Docker
+## 도커 
 
-#### Docker: Error response from daemon: Conflict. The container name "/<container_name>" is already in use by container "<container_id>". 
+#### Docker: Error response from daemon: Conflict. The container name "/<container_name>" is already in use by container "<container_id>".(해당 컨테이너 이름은 이미 다른 컨테이너가 사용하고 있음)
 
-You have to remove (or rename) that container to be able to reuse that name.
+위와 같은 에러 메시지가 뜨는 경우, 해당 이름을 이미 사용하고 있는 컨테이너가 있다는 의미로, 해당 컨테이너를 삭제하거나 이름을 변경해야 합니다.
 
 ## WSL
 
 #### ./fablo-target/fabric-config/configtx.yaml: no such file or directory
 
-Make sure you are running it as a administrator of the cmd or powershell.
+위와 같은 에러 메시지가 뜨는 경우, cmd 또는 powershell을 관리자(administrator)로서 실행하고 있는지 확인하세요. 
 
 #### docker: Got permission denied
 
-If you get a `docker: Got permission denied` error when running npm run network:start or npm run network:up, you may need to enable the configuration `Settings` > `Resources` > `Expose daemon on tcp://localhost:2375 without TLS`.
+npm run network:start 또는 npm run network:up을 실행할 때 위와 같은 에러 메시지가 뜨는 경우, 다음과 같이 구성을 활성화합니다. `Settings` > `Resources` > `Expose daemon on tcp://localhost:2375 without TLS`.
